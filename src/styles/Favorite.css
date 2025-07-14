@@ -1,0 +1,234 @@
+/* Favorite.css */
+.favorite-page-wrapper {
+  position: relative;
+  min-height: 100vh;
+  padding: 60px 20px 40px;
+  background: linear-gradient(145deg, #0d0d0d 0%, #1a1a1a 100%);
+  color: #f0f0f0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Уникальный фон с частицами */
+.favorite-page-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(30, 30, 30, 0.8) 0%,
+    rgba(10, 10, 10, 0.95) 100%
+  );
+  z-index: -2;
+}
+
+/* Эффект частиц для фона */
+.favorite-page-background::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-radial-gradient(
+    circle,
+    rgba(255,255,255,0.05) 0,
+    rgba(255,255,255,0.05) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  background-size: 4px 4px;
+  z-index: -1;
+}
+
+/* Контейнер кнопок */
+.favorite-page-header {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+/* Уникальная кнопка "Избранное" */
+.favorite-page-button {
+  background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.favorite-page-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 65, 108, 0.6);
+}
+
+/* Основной контейнер контента */
+.favorite-page-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Сетка карточек */
+.favorite-page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 20px 0;
+}
+
+/* Уникальная карточка фильма */
+.favorite-page-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.favorite-page-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Контейнер деталей фильма */
+.favorite-page-details {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Контейнер постера */
+.favorite-page-poster {
+  position: relative;
+  overflow: hidden;
+  height: 360px;
+  background: #111;
+}
+
+.favorite-page-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.favorite-page-card:hover .favorite-page-poster img {
+  transform: scale(1.03);
+}
+
+/* Информация о фильме */
+.favorite-page-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Заголовок фильма */
+.favorite-page-title {
+  font-size: 20px;
+  margin: 0 0 15px;
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Мета-информация */
+.favorite-page-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 15px;
+  margin-bottom: 15px;
+}
+
+.favorite-page-meta-item {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.favorite-page-meta-value {
+  color: #fff;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+/* Рейтинг */
+.favorite-page-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.favorite-page-rating-number {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffd700;
+  text-shadow: 0 1px 2px rgba(255, 215, 0, 0.5);
+}
+
+/* Кнопка удаления из избранного */
+.favorite-page-remove-button {
+  margin-top: 20px;
+  background: linear-gradient(135deg, #ff1a1a 0%, #cc0000 100%);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 26, 26, 0.4);
+  align-self: flex-start;
+}
+
+.favorite-page-remove-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 26, 26, 0.6);
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+  .favorite-page-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+  
+  .favorite-page-poster {
+    height: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .favorite-page-title {
+    font-size: 18px;
+  }
+  
+  .favorite-page-meta {
+    gap: 8px 12px;
+  }
+  
+  .favorite-page-meta-item {
+    font-size: 13px;
+  }
+  
+  .favorite-page-meta-value {
+    font-size: 14px;
+  }
+}
