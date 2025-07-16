@@ -1,4 +1,4 @@
-import { Layout, Card, Modal, } from "antd";
+import { Layout, Card, Modal } from "antd";
 import { useEffect, useState } from "react";
 import { Rate } from "antd";
 import { Link } from "react-router-dom";
@@ -43,8 +43,8 @@ export default function MainContent() {
   const [currentPage, setCurrentPage] = useState(1);
   const [fetching, setFetching] = useState(true);
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
-const [selectedRatings, setSelectedRatings] = useState<string[]>([]);
-const [selectedYear, setSelectedYear] = useState<string[]>([]);
+  const [selectedRatings, setSelectedRatings] = useState<string[]>([]);
+  const [selectedYear, setSelectedYear] = useState<string[]>([]);
   const [likedMovies, setLikedMovies] = useState<{
     [key: number]: boolean | Movie;
   }>(() => JSON.parse(localStorage.getItem("likedMovies") || "{}"));
@@ -125,7 +125,7 @@ const [selectedYear, setSelectedYear] = useState<string[]>([]);
   console.log("moviedata", movieData);
 
   const scrollHandler = (e: Event) => {
-    const target = e.target as HTMLElement;
+     const target = document.documentElement || document.body;
 
     if (target && "scrollHeight" in target && "scrollTop" in target) {
       const scrolledToBottom =
